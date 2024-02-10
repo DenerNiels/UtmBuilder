@@ -1,4 +1,5 @@
-﻿
+﻿using UtmBuilder.core.ValueObjects.Exceptions;
+
 namespace UtmBuilder.core.ValueObjects
 {
     public class Campaing : ValueObjects
@@ -26,6 +27,10 @@ namespace UtmBuilder.core.ValueObjects
             Id = id;
             Term = term;
             Content = content;
+
+            InvalidCampaingException.ThrowIfNull(source, "UTM source is invalid");
+            InvalidCampaingException.ThrowIfNull(medium, "UTM medium is invalid");
+            InvalidCampaingException.ThrowIfNull(name, "UTM name is invalid");
 
         }
 

@@ -1,6 +1,4 @@
-﻿
-
-using System.Text.RegularExpressions;
+﻿using System.Text;
 using UtmBuilder.core.ValueObjects.Exceptions;
 
 namespace UtmBuilder.core.ValueObjects
@@ -16,7 +14,7 @@ namespace UtmBuilder.core.ValueObjects
         public Url(string address)
         {
             Address = address;
-            InvalidUrlException.ThrowIfInvalidUrl(address,);
+            InvalidUrlException.ThrowIfInvalidUrl(address);
         }
 
         /// <summary>
@@ -24,5 +22,13 @@ namespace UtmBuilder.core.ValueObjects
         /// </summary>
 
         public string Address { get; }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append(Address);
+            sb.Append("utm_source=");
+            return "";
+        }
     }
 }
